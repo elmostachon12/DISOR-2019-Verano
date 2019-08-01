@@ -1,49 +1,29 @@
-import math
-import subprocess
-class SucesionPadovan:
+class NumeroSuerte:
     def __init__(self):
         self.valor=1
-        self.numeroVecesActualizado = 0
+        self.numeroVecesActualizado = 2
         self.binario='0'
         self.hexadecimal='0'
 
     def avanzar(self):
-        a=1
-        b=1
-        c=1
-        i=3
-        while(i<=self.numeroVecesActualizado):
-            self.valor=a+b
-            a=b
-            b=c
-            c=self.valor
-            i=i+1
-        self.numeroVecesActualizado += 1
+        List=range(-1,self.numeroVecesActualizado*self.numeroVecesActualizado+9,2)
+        i=2
+        while List[i:]:
+            List=sorted(set(List)-set(List[List[i]::List[i]]));i+=1
+        self.valor = List[self.numeroVecesActualizado]
+        self.numeroVecesActualizado +=1
 
-    
     def retroceder(self):
-        a=1
-        b=1
-        c=1
-        i=3
-        self.numeroVecesActualizado -= 1
-        self.valor=1
-        while(i<=self.numeroVecesActualizado):
-            self.valor=a+b
-            a=b
-            b=c
-            c=self.valor
-            i=i+1
-
-    def GenerarNumeroBinario(self):
-        numero = self.valor
-        while(numero > 0):
-            if(numero %2 ==0):
-                self.binario = "0" + self.binario
-            else:
-                self.binario = "1" + self.binario
-            numero = int(math.floor(numero/2))
-
+        if(self.numeroVecesActualizado>=2):
+            self.numeroVecesActualizado -=1
+            List=range(-1,self.numeroVecesActualizado*self.numeroVecesActualizado+9,2)
+            i=2
+            while List[i:]:
+                List=sorted(set(List)-set(List[List[i]::List[i]]));i+=1
+            self.valor = List[self.numeroVecesActualizado]
+        if(self.numeroVecesActualizado<2):
+            self.valor = 1
+            self.numeroVecesActualizado =2
 
     def GenerarNumeroExadecimal(self):
         numero = self.valor
@@ -60,16 +40,13 @@ class SucesionPadovan:
                 digitos = hexadecimal[caracter-1]
         return digitos
         
+    
     def getValor(self):
         return self.valor
-
+    
     def getNumeroBinario(self):
         return self.binario
 
     def getNumeroHexadecimal(self):
         return self.hexadecimal
-
-
-
- 
 
