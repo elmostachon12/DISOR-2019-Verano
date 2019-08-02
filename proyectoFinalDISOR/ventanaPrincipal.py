@@ -27,7 +27,7 @@ class ventanaPrincipal():
     def __init__(self):
         self.ventana = Tk()
         self.ventana.title("Numero de Fibonacci")
-        self.ventana.geometry('600x800')
+        self.ventana.geometry('800x800')
         self.ventana.config(bg = 'black')
 
         #componentes Numero Fibonacci
@@ -52,12 +52,12 @@ class ventanaPrincipal():
         self.etiquetaDecimalNumeroSuerte = etiquetaDecimalNumeroSuerte(self.ventana)
         self.cuadroTextoDecimalNumeroSuerte = cuadroTextoDecimalNumeroSuerte(self.ventana)
         self.etiquetabinarioNumeroSuerte = etiquetaBinarioNumeroSuerte(self.ventana)
-        self.cuadroTextobinarioNumeroSuerte = cuadroTextoBinarioNumeroSuerte(self.ventana)
+        self.cuadroTextoBinarioNumeroSuerte = cuadroTextoBinarioNumeroSuerte(self.ventana)
         self.etiquetaxadecimalNumeroSuerte = etiquetaExadecimalNumeroSuerte(self.ventana)
-        self.cuadroTetoexadecimalNumeroSuerte = cuadroTextoExadecimalNumeroSuerte(self.ventana)
+        self.cuadroTextoExadecimalNumeroSuerte = cuadroTextoExadecimalNumeroSuerte(self.ventana)
         self.etiquetaLetraNumeroSuerte = etiquetaLetraNumeroSuerte(self.ventana)
         self.cuadroTextoLetraNumeroSuerte = cuadroTextoLetraNumeroSuerte(self.ventana)
-        self.botonAvanzarNumeroSuerte = BotonAvanzarNumeroSuerte(self.numeroS,self.cuadroTextobinarioNumeroSuerte,self.cuadroTetoexadecimalNumeroSuerte,self.cuadroTextoDecimalNumeroSuerte,self.cuadroTextoLetraNumeroSuerte)
+        self.botonAvanzarNumeroSuerte = BotonAvanzarNumeroSuerte(self.numeroS,self.cuadroTextoBinarioNumeroSuerte,self.cuadroTextoExadecimalNumeroSuerte,self.cuadroTextoDecimalNumeroSuerte,self.cuadroTextoLetraNumeroSuerte)
         self.etiquetaExtra2 = Label(self.ventana, text="",fg="white",bg="black").pack()
         self.botonRetroceder = BotonRetroceder(self.numeroF,self.cuadroTextobinario,self.cuadroTetoexadecimal,self.cuadroTextoDecimal,self.cuadroTextoLetra)
         

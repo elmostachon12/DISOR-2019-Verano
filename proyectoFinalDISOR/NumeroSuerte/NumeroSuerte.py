@@ -1,3 +1,5 @@
+import math
+import subprocess
 class NumeroSuerte:
     def __init__(self):
         self.valor=1
@@ -65,6 +67,11 @@ class NumeroSuerte:
             List=sorted(set(List)-set(List[List[i]::List[i]]));i+=1
         self.valor = List[self.numeroVecesActualizado]
         self.numeroVecesActualizado +=1
+        self.binario=''
+        self.hexadecimal=''
+        self.GenerarNumeroExadecimal()
+        self.GenerarNumeroBinario()
+
 
     def retroceder(self):
         if(self.numeroVecesActualizado>=2):
@@ -77,6 +84,19 @@ class NumeroSuerte:
         if(self.numeroVecesActualizado<2):
             self.valor = 1
             self.numeroVecesActualizado =2
+        self.binario=''
+        self.hexadecimal=''
+        self.GenerarNumeroExadecimal()
+        self.getNumeroBinario()
+
+    def GenerarNumeroBinario(self):
+        numero = self.valor
+        while(numero > 0):
+            if(numero %2 ==0):
+                self.binario = "0" + self.binario
+            else:
+                self.binario = "1" + self.binario
+            numero = int(math.floor(numero/2))
 
     def GenerarNumeroExadecimal(self):
         numero = self.valor
@@ -196,4 +216,3 @@ class NumeroSuerte:
 
     def getNumeroHexadecimal(self):
         return self.hexadecimal
-
